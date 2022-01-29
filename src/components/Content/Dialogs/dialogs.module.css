@@ -1,0 +1,13 @@
+.container {
+    height:100%;
+    display:grid;
+    grid-template-columns: 2fr 10fr;
+}
+.friends {
+    background: aqua;
+    min-height:100%;
+}
+.messages {
+    background: crimson;
+    height:100%;
+}

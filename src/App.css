@@ -1,7 +1,8 @@
 
 .app-wrapper {
     display: grid;
-
+    width:80%;
+    margin:20px auto 0 auto;
     grid-template-areas:
 "header header header"
 "nav content content";
@@ -10,15 +11,13 @@
     grid-gap: 0px;
 
 }
-.header {
-    grid-area: header;
-    background: red;
-}
-.sidebar {
-    grid-area: nav;
-    background:yellow;
-}
-.content {
+
+.app-wrapper-content {
     grid-area: content;
-    background:blue;
+    background: blue;
+}
+
+a.active {
+    font-weight: bold;
+
 }

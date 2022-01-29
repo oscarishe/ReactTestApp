@@ -1,0 +1,11 @@
+.item {
+    padding:15px;
+
+}
+.sidebar {
+    grid-area: nav;
+    background:yellow;
+}
+a {
+    text-decoration: none;
+}

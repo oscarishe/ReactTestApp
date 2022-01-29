@@ -1,17 +1,36 @@
 import React from "react";
 import './App.css';
-import Header from "./components/header";
-import Sidebar from "./components/sidebar";
-import Content from "./components/content";
 
-function App() {
-  return (
-    <div className='app-wrapper'>
-        <Header />
-        <Sidebar />
-        <Content />
-        </div>
-  );
+import Sidebar from "./components/Sidebar/sidebar";
+import Content from "./components/Content/Profile/content";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+import Dialogs from "./components/Content/Dialogs/dialogs";
+import Header from "./components/Header/header";
+
+function App(props) {
+
+    return (
+        <BrowserRouter>
+            <div className='app-wrapper'>
+                <Header/>
+                <Sidebar/>
+
+                <div className='app-wrapper-content'>
+                    <Routes>
+
+                        <Route path="/profile" element = {<Content profilePage = {props.state.profilePage}
+                                                                   dispatch = {props.dispatch}/>}/>
+                        <Route path="/dialogs/*" element= {<Dialogs dialogPage = {props.state.dialogPage}
+                                                                    dispatch = {props.dispatch}/>} />
+
+                        </Routes>
+                </div>
+
+            </div>
+        </BrowserRouter>
+
+    );
+
 }
 
 export default App;
