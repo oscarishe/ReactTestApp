@@ -7,7 +7,7 @@ let initialState = {
         {text: 'hello'},
         {text: 'wassup'}
     ],
-    newMessageText: ' '
+    newMessageText: ''
 }
 const dialogsReducer = (state = initialState, action) => {
 
@@ -17,6 +17,7 @@ const dialogsReducer = (state = initialState, action) => {
             text: state.newMessageText
         }
         state.messages.push(newMessage);
+        state.newMessageText = '';
     }
     if(action.type === 'UPDATE-NEW-MESSAGE-TEXT') {
         state.newMessageText = action.newMessage;

@@ -8,17 +8,18 @@ import {addNewMessageDispatcher, updateNewMessageTextDispatcher} from "../../../
 const Dialogs = (props) => {
 
 
-    let dialogs = props.dialogPage.names.map(friend => <DialogItem id={friend.id} name={friend.name}/>);
-    let messages = props.dialogPage.messages.map(message => <Message text = {message.text}/>);
-    let newMessageField = React.createRef();
+    let dialogs = props.names.map(friend => <DialogItem id={friend.id} name={friend.name}/>);
+    let messages = props.messages.map(message => <Message text = {message.text}/>);
 
     let addMessage = () => {
-        props.dispatch(addNewMessageDispatcher());
-        props.dispatch(updateNewMessageTextDispatcher(' '));
+        //props.dispatch(addNewMessageDispatcher());
+        //props.dispatch(updateNewMessageTextDispatcher(' '));
+        props.addMessage();
     }
     let onMessageChange = (e) => {
         let text = e.target.value;
-        props.dispatch(updateNewMessageTextDispatcher(text));
+       //props.dispatch(updateNewMessageTextDispatcher(text));
+        props.onMessageChange(text);
     }
 
 
@@ -33,7 +34,7 @@ const Dialogs = (props) => {
                 </div>
                 <div>
                     {messages}
-                    <textarea value={props.dialogPage.newMessageText}  onChange={onMessageChange}/>
+                    <textarea value={props.newMessageText}  onChange={onMessageChange}/>
                     <button onClick={addMessage} >Добавить</button>
                 </div>
             </div>
