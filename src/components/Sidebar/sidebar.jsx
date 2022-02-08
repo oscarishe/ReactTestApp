@@ -8,7 +8,7 @@ const Sidebar = () => {
         <div className={classes.item}><NavLink to="/dialogs">Messages</NavLink></div>
         <div className={classes.item}><a>Feed</a></div>
         <div className={classes.item}><a>Settings</a></div>
-        <div className={classes.item}><a>Friends</a></div>
+        <div className={classes.item}><NavLink to={"/users"}>Users</NavLink></div>
     </nav>;
 }
 

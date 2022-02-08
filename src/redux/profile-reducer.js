@@ -26,11 +26,16 @@ const profileReducer = (state = initialState, action) => {
             id:Math.floor(Math.random() * 100),
             message: state.newPostText
         }
-        state.posts.push(newPost);
-
+        let stateCopy = {...state};
+        stateCopy.posts = [...state.posts];
+        stateCopy.posts.push(newPost);
+        stateCopy.newPostText = '';
+        return stateCopy;
     }
     else if (action.type==='UPDATE-NEW-POST-TEXT') {
-        state.newPostText = action.newText;
+        let stateCopy = {...state};
+        stateCopy.newPostText = action.newText;
+        return stateCopy;
     }
     return state;
 }

@@ -2,12 +2,12 @@ import React from "react";
 import './App.css';
 
 import Sidebar from "./components/Sidebar/sidebar";
-import Content from "./components/Content/Profile/content";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
-import Dialogs from "./components/Content/Dialogs/dialogs";
 import Header from "./components/Header/header";
 import ContentContainer from "./components/Content/Profile/ContentContainer";
 import DialogsContainer from "./components/Content/Dialogs/DialogsContainer";
+import UsersContainer from "./components/Users/UsersContainer";
+
 
 function App(props) {
     return (
@@ -19,10 +19,8 @@ function App(props) {
 
                 <div className='app-wrapper-content'>
                     <Routes>
-
                         <Route path="/profile" element = {<ContentContainer store = {props.store}/>}/>
-                        {/*<Route path="/dialogs/*" element= {<Dialogs dialogPage = {props.state.dialogPage}*/}
-                        {/*                                            dispatch = {props.dispatch}/>} />*/}
+                        <Route path="/users" element = {<UsersContainer store = {props.store} />} />
                         <Route path="/dialogs/*" element= {<DialogsContainer store = {props.store}/>}/>
                         </Routes>
                 </div>

@@ -6,7 +6,6 @@ import {addNewPostDispatcher, updateNewPostTextDispatcher} from "../../../redux/
 
 
 const Content = (props) => {
-
     let newPostField = React.createRef();
 
     let addPost = () => {
@@ -16,11 +15,11 @@ const Content = (props) => {
 
     }
     let messageElements = props.posts
-        .map(post => <Post message={post.message} id={post.id} />);
+        .map(post => <Post  message={post.message} id={post.id} />);
 
     let onPostChange = () => {
         let text = newPostField.current.value;
-        props.updateNewPostText(text);
+        props.onPostChange(text);
         //props.dispatch({type: 'UPDATE-NEW-POST-TEXT', newText: text});
     }
 
